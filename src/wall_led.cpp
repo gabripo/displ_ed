@@ -36,12 +36,21 @@ SimplePatternList gPatterns = {rainbow, rainbowWithGlitter, confetti, sinelon, j
 uint8_t gCurrentPatternNumber = 0;  // Index number of which pattern is current
 uint8_t gHue = 0;                   // rotating "base color" used by many of the patterns
 
+size_t i = 0;
 void loop() {
+    if (i == NUM_LEDS - 1) {
+        i = 0;
+    }
+    leds[i] = CRGB::Red;
+    FastLED.show();
+    leds[i] = CRGB::Black;
+    delay(10);
+    i++;
     // Call the current pattern function once, updating the 'leds' array
     // gPatterns[gCurrentPatternNumber]();
 
     // send the 'leds' array out to the actual LED strip
-    FastLED.show();
+    // FastLED.show();
     // insert a delay to keep the framerate modest
     // FastLED.delay(1000 / FRAMES_PER_SECOND);
 
