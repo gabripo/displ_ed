@@ -23,9 +23,12 @@ void setup() {
 
     FastLED.setBrightness(BRIGHTNESS);
 
-    for (size_t led_row = 0; led_row < leds_height; led_row++) {
-        leds[led_row * leds_width] = CRGB::Red;
-    }
+    // for (size_t led_row = 0; led_row < leds_height; led_row++) {
+    //     leds[led_row * leds_width] = CRGB::Red;
+    // }
+    Serial.println("Setting colors...");
+    set_color_all_rows(leds, CRGB::AliceBlue);
+    Serial.println("Colors set!");
 }
 
 // // List of patterns to cycle through.  Each is defined as a separate function below.
