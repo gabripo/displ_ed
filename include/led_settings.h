@@ -13,4 +13,7 @@ static const unsigned int leds_height = 15;
 static const unsigned long long int num_leds = leds_width * leds_height;
 
 CRGB leds[num_leds];
+
+static const unsigned int frames_per_second = 120;
+static const float seconds_per_frame = 1000.0 / (float)frames_per_second;
 #endif

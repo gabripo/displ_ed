@@ -1,5 +1,10 @@
 #include "led_functions.h"
 
+void leds_refresh() {
+    FastLED.show();
+    FastLED.delay(seconds_per_frame);
+}
+
 void set_color_all_rows(CRGB* leds_values, const CRGB color) {
     for (pixelPos rowIdx = 0; rowIdx < leds_height; rowIdx++) {
         for (pixelPos ledInRow = 0; ledInRow < leds_width; ledInRow++) {
