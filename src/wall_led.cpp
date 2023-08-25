@@ -23,6 +23,9 @@ void setup() {
     FastLED.addLeds<LED_TYPE, ARDUINO_DATA_PIN, COLOR_ORDER>(leds, num_leds);
 
     FastLED.setBrightness(BRIGHTNESS);
+    switch_off_all(leds);
+    FastLED.show();
+    delay(1000);
 
     // for (size_t led_row = 0; led_row < leds_height; led_row++) {
     //     leds[led_row * leds_width] = CRGB::Red;
