@@ -16,10 +16,12 @@ void set_color_all_rows(CRGB* leds_values, const CRGB color) {
             leds_values[xPos + leds_width * yPos] = color;
         }
     }
+    leds_refresh();
 }
 
 void switch_off_all(CRGB* leds_values) {
     set_color_all_rows(leds_values, CRGB::Black);
+    leds_refresh();
 }
 
 void rgb_test(CRGB* leds_values) {
