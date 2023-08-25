@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <FastLED.h>
 
+#include "led_functions.cpp"
 #include "led_settings.h"
 
 FASTLED_USING_NAMESPACE
