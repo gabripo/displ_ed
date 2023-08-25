@@ -5,6 +5,11 @@ void leds_refresh() {
     FastLED.delay(seconds_per_frame);
 }
 
+void leds_refresh_wait(const unsigned long long int timeToWait) {
+    leds_refresh();
+    FastLED.delay(timeToWait);
+}
+
 void set_color_all_rows(CRGB* leds_values, const CRGB color) {
     for (pixelPos yPos = 0; yPos < leds_height; yPos++) {
         for (pixelPos xPos = 0; xPos < leds_width; xPos++) {
@@ -15,6 +20,17 @@ void set_color_all_rows(CRGB* leds_values, const CRGB color) {
 
 void switch_off_all(CRGB* leds_values) {
     set_color_all_rows(leds_values, CRGB::Black);
+}
+
+void rgb_test(CRGB* leds_values) {
+    set_color_all_rows(leds_values, CRGB::Red);
+    leds_refresh_wait(1000);
+    set_color_all_rows(leds_values, CRGB::Green);
+    leds_refresh_wait(1000);
+    set_color_all_rows(leds_values, CRGB::Blue);
+    leds_refresh_wait(1000);
+    switch_off_all(leds_values);
+    leds_refresh_wait(1000);
 }
 
 bool position_in_boundaries(const pixelPosCouple xyPos) {

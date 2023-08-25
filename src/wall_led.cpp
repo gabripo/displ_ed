@@ -18,21 +18,17 @@ FASTLED_USING_NAMESPACE
 // void juggle();
 
 void setup() {
-    delay(3000);  // 3 second delay for recovery
+    // delay(3000);  // 3 second delay for recovery
+    Serial.begin(9600);
 
     FastLED.addLeds<LED_TYPE, ARDUINO_DATA_PIN, COLOR_ORDER>(leds, num_leds);
 
     FastLED.setBrightness(BRIGHTNESS);
     switch_off_all(leds);
-    FastLED.show();
-    delay(1000);
 
     // for (size_t led_row = 0; led_row < leds_height; led_row++) {
     //     leds[led_row * leds_width] = CRGB::Red;
     // }
-    Serial.println("Setting colors...");
-    set_color_all_rows(leds, CRGB::AliceBlue);
-    Serial.println("Colors set!");
 }
 
 // // List of patterns to cycle through.  Each is defined as a separate function below.
@@ -43,8 +39,7 @@ void setup() {
 // uint8_t gHue = 0;                   // rotating "base color" used by many of the patterns
 
 void loop() {
-    FastLED.show();
-
+    rgb_test(leds);
     // Call the current pattern function once, updating the 'leds' array
     // gPatterns[gCurrentPatternNumber]();
 
