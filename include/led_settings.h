@@ -8,8 +8,8 @@
 #define BRIGHTNESS 96
 #define ARDUINO_DATA_PIN 3
 
-static const unsigned int leds_width = 20;
-static const unsigned int leds_height = 15;
+static const unsigned int leds_width = 16;
+static const unsigned int leds_height = 16;
 static const unsigned long long int num_leds = leds_width * leds_height;
 
 CRGB leds[num_leds];
