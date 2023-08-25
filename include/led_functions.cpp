@@ -6,9 +6,9 @@ void leds_refresh() {
 }
 
 void set_color_all_rows(CRGB* leds_values, const CRGB color) {
-    for (pixelPos rowIdx = 0; rowIdx < leds_height; rowIdx++) {
-        for (pixelPos ledInRow = 0; ledInRow < leds_width; ledInRow++) {
-            leds_values[ledInRow] = color;
+    for (pixelPos yPos = 0; yPos < leds_height; yPos++) {
+        for (pixelPos xPos = 0; xPos < leds_width; xPos++) {
+            leds_values[xPos + leds_width * yPos] = color;
         }
     }
 }
