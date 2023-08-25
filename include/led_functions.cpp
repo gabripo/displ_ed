@@ -8,8 +8,12 @@ void set_color_all_rows(CRGB* leds_values, const CRGB color) {
     }
 }
 
+void switch_off_all(CRGB* leds_values) {
+    set_color_all_rows(leds_values, CRGB::Black);
+}
+
 bool position_in_boundaries(const pixelPosCouple xyPos) {
-    if ((xyPos.x < leds_width) && (xyPos.y < leds_height)) {
+    if ((xyPos.x <= leds_width) && (xyPos.y <= leds_height)) {
         return true;
     }
     return false;

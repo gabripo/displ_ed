@@ -13,6 +13,7 @@ typedef struct {
 } pixelPosCouple;
 
 void set_color_all_rows(CRGB* leds_values, const CRGB color);
+void switch_off_all(CRGB* leds_values);
 
 bool position_in_boundaries(const pixelPosCouple xyPos);
 pixelPos position_to_idx(const pixelPosCouple xyPos);
