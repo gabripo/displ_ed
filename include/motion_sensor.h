@@ -1,11 +1,9 @@
 #include <Arduino.h>
 
-#define PIN_TO_SENSOR 7
+#define PIN_TO_SENSOR 2  // Has to be an interrupt-capable pin!
+const byte interruptPin = 2;
 
-int pinSensorStateCurrent;
-int pinSensorStatePrevious;
+volatile byte isMotion;
 
 void setup_motion_sensor();
-void motion_sensor_read();
-bool is_motion_started();
-bool is_motion_finished();
+void motion_event();

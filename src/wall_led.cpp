@@ -25,7 +25,8 @@ void setup() {
     FastLED.addLeds<LED_TYPE, ARDUINO_DATA_PIN, COLOR_ORDER>(leds, num_leds);
 
     FastLED.setBrightness(BRIGHTNESS);
-    rgb_test(leds);
+    // rgb_test(leds);
+    setup_motion_sensor();
 
     // for (size_t led_row = 0; led_row < leds_height; led_row++) {
     //     leds[led_row * leds_width] = CRGB::Red;
@@ -40,15 +41,22 @@ void setup() {
 // uint8_t gHue = 0;                   // rotating "base color" used by many of the patterns
 
 void loop() {
-    motion_sensor_read();
-    if (is_motion_started()) {
-        Serial.println("Motion detected!");
+    // if (is_motion_started()) {
+    //     Serial.println("Motion detected!");
+    //     set_color_all_rows(leds, CRGB::Red);
+    // }
+    // if (is_motion_finished()) {  // pin state change: HIGH -> LOW
+    //     Serial.println("Motion stopped!");
+    //     switch_off_all(leds);
+    // }
+    if (isMotion) {
+        Serial.println("Motion!");
         set_color_all_rows(leds, CRGB::Red);
-    }
-    if (is_motion_finished()) {  // pin state change: HIGH -> LOW
-        Serial.println("Motion stopped!");
+    } else {
         switch_off_all(leds);
     }
+    // Serial.println(digitalRead(interruptPin));
+    // Serial.println();
 
     // Call the current pattern function once, updating the 'leds' array
     // gPatterns[gCurrentPatternNumber]();
