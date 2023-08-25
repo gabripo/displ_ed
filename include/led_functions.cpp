@@ -8,23 +8,23 @@ void set_color_all_rows(CRGB* leds_values, const CRGB color) {
     }
 }
 
-bool position_in_boundaries(const pixelPos xPos, const pixelPos yPos) {
-    if ((xPos < leds_width) && (yPos < leds_height)) {
+bool position_in_boundaries(const pixelPosCouple xyPos) {
+    if ((xyPos.x < leds_width) && (xyPos.y < leds_height)) {
         return true;
     }
     return false;
 }
 
-pixelPos position_to_idx(const pixelPos xPos, const pixelPos yPos) {
-    if (position_in_boundaries(xPos, yPos)) {
-        return xPos + leds_width * yPos;
+pixelPos position_to_idx(const pixelPosCouple xyPos) {
+    if (position_in_boundaries(xyPos)) {
+        return xyPos.x + leds_width * xyPos.y;
     }
     return 0;
 }
 
-CRGB get_color_by_position(CRGB* leds_values, const pixelPos xPos, const pixelPos yPos) {
-    if (position_in_boundaries(xPos, yPos)) {
-        return leds_values[position_to_idx(xPos, yPos)];
+CRGB get_color_by_position(CRGB* leds_values, const pixelPosCouple xyPos) {
+    if (position_in_boundaries(xyPos)) {
+        return leds_values[position_to_idx(xyPos)];
     }
     return CRGB();
 }
