@@ -17,5 +17,6 @@ void set_color_all_rows(CRGB* leds_values, const CRGB color);
 bool position_in_boundaries(const pixelPosCouple xyPos);
 pixelPos position_to_idx(const pixelPosCouple xyPos);
 CRGB get_color_by_position(CRGB* leds_values, const pixelPosCouple xyPos);
+void set_color_by_position(CRGB* leds_values, const pixelPosCouple xyPos, const CRGB colorToSet);
 
 #endif

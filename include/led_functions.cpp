@@ -28,3 +28,9 @@ CRGB get_color_by_position(CRGB* leds_values, const pixelPosCouple xyPos) {
     }
     return CRGB();
 }
+
+void set_color_by_position(CRGB* leds_values, const pixelPosCouple xyPos, const CRGB colorToSet) {
+    if (position_in_boundaries(xyPos)) {
+        leds_values[position_to_idx(xyPos)] = colorToSet;
+    }
+}
