@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <FastLED.h>
 
+#include "images.h"
 #include "led_functions.cpp"
 #include "led_settings.h"
 #include "motion_sensor.cpp"
@@ -51,7 +52,8 @@ void loop() {
     // }
     if (isMotion) {
         Serial.println("Motion!");
-        set_color_all_rows(leds, CRGB::Red);
+        // set_color_all_rows(leds, CRGB::Red);
+        load_image(leds, img_masterBall);
     } else {
         switch_off_all(leds);
     }
