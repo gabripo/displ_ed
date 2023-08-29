@@ -63,11 +63,6 @@ void set_color_by_position(CRGB* leds_values, const pixelPosCouple xyPos, const 
 }
 
 void load_image(CRGB* leds_values, const CRGB* imgToLoad) {
-    for (pixelPos yPos = 0; yPos < leds_height; yPos++) {
-        for (pixelPos xPos = 0; xPos < leds_width; xPos++) {
-            pixelPos currPos = xPos + leds_width * yPos;
-            leds_values[currPos] = imgToLoad[currPos];
-        }
-    }
+    memcpy(leds_values, imgToLoad, num_leds * sizeof(CRGB));
     leds_refresh();
 }
