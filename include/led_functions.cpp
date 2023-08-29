@@ -62,7 +62,10 @@ void set_color_by_position(CRGB* leds_values, const pixelPosCouple xyPos, const 
     }
 }
 
-void load_image(CRGB* leds_values, const CRGB* imgToLoad) {
-    memcpy(leds_values, imgToLoad, num_leds * sizeof(CRGB));
-    leds_refresh();
+void load_image(CRGB* leds_values, const CRGB* imgToLoad, unsigned int* imgLoaded) {
+    if (!(*imgLoaded)) {
+        memcpy(leds_values, imgToLoad, num_leds * sizeof(CRGB));
+        leds_refresh();
+        *imgLoaded = 1;
+    }
 }

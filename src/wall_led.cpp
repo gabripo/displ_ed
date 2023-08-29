@@ -53,9 +53,10 @@ void loop() {
     if (isMotion) {
         Serial.println("Motion!");
         // set_color_all_rows(leds, CRGB::Red);
-        load_image(leds, img_masterBall);
+        load_image(leds, img_masterBall, &imgLoaded);
     } else {
         switch_off_all(leds);
+        imgLoaded = 0;
     }
     // Serial.println(digitalRead(interruptPin));
     // Serial.println();

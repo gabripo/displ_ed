@@ -11,6 +11,7 @@ typedef struct {
     pixelPos x;
     pixelPos y;
 } pixelPosCouple;
+unsigned int imgLoaded = 0;
 
 void leds_refresh();
 void leds_refresh_wait(const unsigned long long int timeToWait);
@@ -23,5 +24,5 @@ bool position_in_boundaries(const pixelPosCouple xyPos);
 pixelPos position_to_idx(const pixelPosCouple xyPos);
 CRGB get_color_by_position(CRGB* leds_values, const pixelPosCouple xyPos);
 void set_color_by_position(CRGB* leds_values, const pixelPosCouple xyPos, const CRGB colorToSet);
-void load_image(CRGB* leds_values, const CRGB* imgToLoad);
+void load_image(CRGB* leds_values, const CRGB* imgToLoad, unsigned int* imgLoaded);
 #endif
