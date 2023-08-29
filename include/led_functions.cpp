@@ -67,5 +67,6 @@ void load_image(CRGB* leds_values, const CRGB* imgToLoad, unsigned int* imgLoade
         memcpy(leds_values, imgToLoad, num_leds * sizeof(CRGB));
         leds_refresh();
         *imgLoaded = 1;
+        Serial.println("Image loaded!");
     }
 }
