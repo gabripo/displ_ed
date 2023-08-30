@@ -24,5 +24,7 @@ bool position_in_boundaries(const pixelPosCouple xyPos);
 pixelPos position_to_idx(const pixelPosCouple xyPos);
 CRGB get_color_by_position(CRGB* leds_values, const pixelPosCouple xyPos);
 void set_color_by_position(CRGB* leds_values, const pixelPosCouple xyPos, const CRGB colorToSet);
+void turnon_nth_led_each_stripe(CRGB* leds_values, const pixelPos nthPos, const CRGB colorToSet);
+
 void load_image(CRGB* leds_values, const CRGB* imgToLoad, unsigned int* imgLoaded);
 #endif

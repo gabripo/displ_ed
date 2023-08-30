@@ -62,6 +62,20 @@ void set_color_by_position(CRGB* leds_values, const pixelPosCouple xyPos, const 
     }
 }
 
+void turnon_nth_led_each_stripe(CRGB* leds_values, const pixelPos nthPos, const CRGB colorToSet) {
+    if (nthPos > leds_width) {
+        set_color_all_rows(leds_values, CRGB::Red);
+        return;
+    }
+    pixelPosCouple xyPosToSet;
+    xyPosToSet.x = nthPos;
+    for (pixelPos numRow = 0; numRow < leds_height; numRow++) {
+        xyPosToSet.y = numRow;
+        set_color_by_position(leds_values, xyPosToSet, colorToSet);
+    }
+    leds_refresh();
+}
+
 void load_image(CRGB* leds_values, const CRGB* imgToLoad, unsigned int* imgLoaded) {
     if (!(*imgLoaded)) {
         memcpy(leds_values, imgToLoad, num_leds * sizeof(CRGB));
