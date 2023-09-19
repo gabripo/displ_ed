@@ -50,28 +50,29 @@ void loop() {
     //     Serial.println("Motion stopped!");
     //     switch_off_all(leds);
     // }
-    if (isMotion) {
-        Serial.println("Motion!");
-        // set_color_all_rows(leds, CRGB::Red);
-        load_image(leds, img_masterBall, &imgLoaded);
-    } else {
-        switch_off_all(leds);
-        imgLoaded = 0;
-    }
     // Serial.println(digitalRead(interruptPin));
     // Serial.println();
-
-    // Call the current pattern function once, updating the 'leds' array
-    // gPatterns[gCurrentPatternNumber]();
-
-    // send the 'leds' array out to the actual LED strip
-    // FastLED.show();
-    // insert a delay to keep the framerate modest
-    // FastLED.delay(1000 / FRAMES_PER_SECOND);
-
-    // EVERY_N_MILLISECONDS(20) { gHue++; }    // slowly cycle the "base color" through the rainbow
-    // EVERY_N_SECONDS(10) { nextPattern(); }  // change patterns periodically
+    if (isMotion) {
+        Serial.println("Motion!");
+        set_color_all_rows(leds, CRGB::Red);
+        // load_image(leds, img_masterBall, &imgLoaded);
+        // imgLoaded = 0;
+    } else {
+        switch_off_all(leds);
+    };
 }
+
+// Call the current pattern function once, updating the 'leds' array
+// gPatterns[gCurrentPatternNumber]();
+
+// send the 'leds' array out to the actual LED strip
+// FastLED.show();
+// insert a delay to keep the framerate modest
+// FastLED.delay(1000 / FRAMES_PER_SECOND);
+
+// EVERY_N_MILLISECONDS(20) { gHue++; }    // slowly cycle the "base color" through the rainbow
+// EVERY_N_SECONDS(10) { nextPattern(); }  // change patterns periodically
+// }
 
 // #define ARRAY_SIZE(A) (sizeof(A) / sizeof((A)[0]))
 
