@@ -15,7 +15,9 @@ void setup() {
 
     FastLED.setBrightness(BRIGHTNESS);
     // setup_motion_sensor();
-    turnon_incrementally(leds);
+    // turnon_incrementally(leds);
+    imgLoaded = 0;
+    load_image(leds, img_masterBall, &imgLoaded);
 }
 
 void loop() {
