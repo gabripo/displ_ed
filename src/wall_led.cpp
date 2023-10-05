@@ -21,7 +21,7 @@ void setup() {
 void loop() {
     if (isMotion) {
         Serial.println("Motion!");
-        load_image(leds, img_heart, &imgLoaded);
+        load_image(leds, img_pokeball, &imgLoaded);
     } else {
         switch_off_all(leds);
         imgLoaded = 0;
