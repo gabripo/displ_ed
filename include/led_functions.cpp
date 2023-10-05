@@ -78,6 +78,13 @@ void turnon_nth_led_each_stripe(CRGB* leds_values, const pixelPos nthPos, const 
     leds_refresh();
 }
 
+void turnon_incrementally(CRGB* leds_values) {
+    for (pixelPos currLed = 0; currLed < num_leds; currLed++) {
+        leds_values[currLed] = CRGB::Red;
+        leds_refresh_wait(500);
+    }
+}
+
 void load_image(CRGB* leds_values, const CRGB* imgToLoad, unsigned int* imgLoaded) {
     if (!(*imgLoaded)) {
         memcpy(leds_values, imgToLoad, num_leds * sizeof(CRGB));
