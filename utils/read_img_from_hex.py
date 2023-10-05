@@ -74,7 +74,12 @@ def main():
     lines = load_hex_values_from_file(args.file_path)
 
     # Combine all hex values into a single image, optionally inverting even lines
-    hex_values = [hex_value.strip() for line in lines for hex_value in line.split(",")]
+    hex_values = [
+        hex_value.strip()
+        for line in lines
+        for hex_value in line.split(",")
+        if hex_value.strip()
+    ]
     image = combine_hex_values_as_image(hex_values, invert_even_lines=args.invert_even)
 
     # Display the combined image using the default image viewer
