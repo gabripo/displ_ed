@@ -6,7 +6,7 @@ def invert_even_rows(image):
     width, height = image.size
     pixels = image.load()
 
-    even_rows = [y for y in range(height) if y % 2 == 0]
+    even_rows = [y + 1 for y in range(height) if y % 2 == 0]
     for y in even_rows:
         row_pixels = [pixels[x, y] for x in range(width)]
         for x in range(width):
