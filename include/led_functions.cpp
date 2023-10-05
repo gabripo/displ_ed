@@ -31,6 +31,8 @@ void rgb_test(CRGB* leds_values) {
     leds_refresh_wait(1000);
     set_color_all_rows(leds_values, CRGB::Blue);
     leds_refresh_wait(1000);
+    set_color_all_rows(leds_values, CRGB::White);
+    leds_refresh_wait(1000);
     switch_off_all(leds_values);
     leds_refresh_wait(1000);
 }
