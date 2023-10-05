@@ -5,7 +5,7 @@
 
 #define LED_TYPE WS2812B
 #define COLOR_ORDER GRB
-#define BRIGHTNESS 96
+#define BRIGHTNESS 24
 #define ARDUINO_DATA_PIN 3
 
 static const unsigned int leds_width = 16;
