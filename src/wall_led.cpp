@@ -15,7 +15,7 @@ void setup() {
 
     FastLED.setBrightness(BRIGHTNESS);
     // setup_motion_sensor();
-    turnon_incrementally();
+    turnon_incrementally(leds);
 }
 
 void loop() {
