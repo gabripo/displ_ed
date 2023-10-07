@@ -14,6 +14,8 @@ void setup() {
     FastLED.addLeds<LED_TYPE, ARDUINO_DATA_PIN, COLOR_ORDER>(leds, num_leds);
 
     FastLED.setBrightness(BRIGHTNESS);
+    rgb_test(leds);
+    delay(1000);
     setup_motion_sensor();
     // turnon_incrementally(leds);
 }
