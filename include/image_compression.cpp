@@ -1,4 +1,4 @@
-#include "image_compression.h"
+#include "image_compression.hpp"
 
 rgb_color convert_crgb_rgbcolor(const CRGB* const crgb_color) {
     rgb_color convertedRgbColor;
