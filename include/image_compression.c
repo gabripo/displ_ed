@@ -33,7 +33,7 @@ RLEPixel* compressRLE(rgb_color* imageData, uint8_t width, uint8_t height, int* 
         for (uint8_t x = 0; x < width; x++) {
             rgb_color imageColor = imageData[y * width + x];
 
-            if (is_same_rgbcolor(&imageColor, &currentColor)) {
+            if (is_same_rgbcolor(&imageColor, &currentColor) && (currentColorCount < 0xFFFFFFFF)) {
                 currentColorCount++;
             } else {
                 if (currentColorCount > 0) {

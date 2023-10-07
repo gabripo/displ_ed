@@ -16,7 +16,7 @@ typedef struct
 typedef struct
 {
     rgb_color rgb;
-    uint64_t count;
+    uint32_t count;
 } RLEPixel;
 
 rgb_color convert_crgb_rgbcolor(const CRGB* const crgb_color);
