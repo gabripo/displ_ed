@@ -1,5 +1,5 @@
 #ifndef IMG_COMPRESSION
-#define IMG_COMPRESSIOn
+#define IMG_COMPRESSION
 
 #include <stdint.h>
 #include <stdlib.h>
