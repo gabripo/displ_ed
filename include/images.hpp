@@ -91,3 +91,14 @@ const CRGB img_pokeball[] = {
     0xff00ff, 0xff00ff, 0xff00ff, 0xff00ff, 0xff00ff, 0xff00ff, 0xff00ff, 0xff00ff, 0xff00ff, 0xff00ff, 0xff00ff, 0xff00ff, 0xff00ff, 0xff00ff, 0xff00ff, 0xff00ff
 
 };
+
+const CRGB* images[] = {
+    img_pokeball,
+    img_masterBall,
+    img_chessboard};
+
+enum images_name {
+    POKEBALL,
+    MASTERBALL,
+    CHESSBOARD
+};
