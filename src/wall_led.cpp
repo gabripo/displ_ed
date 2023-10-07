@@ -19,7 +19,7 @@ void setup() {
 }
 
 void loop() {
-    if (isMotion) {
+    if (isMotion & digitalRead(interruptPin)) {
         Serial.println("Motion!");
         load_image(leds, img_pokeball, &imgLoaded);
     } else {
