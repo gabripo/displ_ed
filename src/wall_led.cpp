@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <FastLED.h>
 
+#include "image_compression.c"
 #include "images.h"
 #include "led_functions.cpp"
 #include "led_settings.h"
