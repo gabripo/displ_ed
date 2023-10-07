@@ -64,6 +64,10 @@ CRGB* decompressRLE(const RLEPixel* const compressedData, uint64_t compressedSiz
     }
 
     CRGB* decompressedData = (CRGB*)malloc(totalSize * sizeof(CRGB));
+    if (decompressedData == NULL) {
+        return nullptr;
+    }
+
     int decompressedDataIndex = 0;
     for (uint8_t i = 0; i < compressedSize; i++) {
         for (size_t j = 0; j < compressedData[i].count; j++) {
