@@ -2,9 +2,9 @@
 
 rgb_color convert_crgb_rgbcolor(const CRGB* const crgb_color) {
     rgb_color convertedRgbColor;
-    convertedRgbColor.red = (uint32_t)*crgb_color << 16;
-    convertedRgbColor.green = (uint32_t)*crgb_color << 8;
-    convertedRgbColor.blue = (uint32_t)*crgb_color;
+    convertedRgbColor.red = (uint32_t)*crgb_color & 0x00FF0000;
+    convertedRgbColor.green = (uint32_t)*crgb_color & 0x0000FF00;
+    convertedRgbColor.blue = (uint32_t)*crgb_color & 0x000000FF;
     return convertedRgbColor;
 }
 
