@@ -45,10 +45,17 @@ def read_color_data(filename):
 
 # Write compressed data to a text file with hex values separated by comma
 def write_compressed_data(filename, compressed_data):
+    rgbValType = "uint8_t"
+    countType = "uint32_t"
     with open(filename, "w") as file:
         for pixel in compressed_data:
             hex_color = hex(pixel.color)[2:]
-            file.write(f"0x{hex_color}, {pixel.count}\n")
+            hex_color_r = hex(int(hex_color, 16) & 0x000000FF)
+            hex_color_g = hex(int(hex_color, 16) & 0x0000FF00)
+            hex_color_b = hex(int(hex_color, 16) & 0x00FF0000)
+            file.write(
+                f"{{{{({rgbValType}) {hex_color_r}, ({rgbValType}) {hex_color_g}, ({rgbValType}) {hex_color_b}}}, ({countType}) {pixel.count}}},\n"
+            )
 
 
 if __name__ == "__main__":
