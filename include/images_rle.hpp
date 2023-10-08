@@ -63,4 +63,4 @@ const RLEPixel img_pokeball_rle[] PROGMEM = {
     {{(uint8_t)0xff, (uint8_t)0x0, (uint8_t)0xff}, (uint8_t)38},
 };
 
-const uint64_t img_pokeball_rle_size PROGMEM = (uint32_t)60;
+const uint32_t img_pokeball_rle_size PROGMEM = (uint32_t)60;
