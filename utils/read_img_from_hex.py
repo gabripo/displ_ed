@@ -75,9 +75,16 @@ def main():
 
     # Combine all hex values into a single image, optionally inverting even lines
     hex_values = [
-        hex_value.strip()
+        "0x"
+        + "".join(
+            hex_value.strip()
+            .replace("(uint8_t)", "")
+            .replace("{", "")
+            .replace("0x", "")
+            .replace(", ", "")
+        )
         for line in lines
-        for hex_value in line.split(",")
+        for hex_value in line.split("},")
         if hex_value.strip()
     ]
     image = combine_hex_values_as_image(hex_values, invert_even_lines=args.invert_even)

@@ -29,10 +29,26 @@ def convert_image_to_hex(image_path, invert):
 
     # Convert each RGB pixel to a single 24-bit hexadecimal value
     hex_values = []
+    rgbChannelType = "(uint8_t)"
     for i, pixel in enumerate(pixels, start=1):
         r, g, b = pixel
         rgb_hex = (r << 16) | (g << 8) | b
-        hex_values.append("0x" + format(rgb_hex, "06x") + ",")
+        hex_values.append(
+            "{"
+            + rgbChannelType
+            + "0x"
+            + format(r, "02x")
+            + ", "
+            + rgbChannelType
+            + "0x"
+            + format(g, "02x")
+            + ", "
+            + rgbChannelType
+            + "0x"
+            + format(b, "02x")
+            + "},"
+        )
+        # hex_values.append("0x" + format(rgb_hex, "06x") + ",")
 
         if i % 16 == 0:  # Add a newline after every 16 values
             hex_values.append("\n")
