@@ -62,9 +62,9 @@ def write_compressed_data(filename, compressed_data):
     with open(filename, "w") as file:
         for pixel in compressed_data:
             hex_color = hex(pixel.color)[2:]
-            hex_color_r = hex(int(hex_color, 16) & 0x000000FF)
-            hex_color_g = hex(int(hex_color, 16) & 0x0000FF00)
-            hex_color_b = hex(int(hex_color, 16) & 0x00FF0000)
+            hex_color_r = hex((int(hex_color, 16) & 0x00FF0000) >> 16)
+            hex_color_g = hex((int(hex_color, 16) & 0x0000FF00) >> 8)
+            hex_color_b = hex(int(hex_color, 16) & 0x000000FF)
             file.write(
                 f"{{{{({rgbValType}) {hex_color_r}, ({rgbValType}) {hex_color_g}, ({rgbValType}) {hex_color_b}}}, ({countType}) {pixel.count}}},\n"
             )

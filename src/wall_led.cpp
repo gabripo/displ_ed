@@ -2,8 +2,8 @@
 #include <FastLED.h>
 #include <avr/pgmspace.h>
 
-#include "image_compression.cpp"
 #include "images.hpp"
+#include "images_rle.hpp"
 #include "led_functions.cpp"
 #include "led_settings.h"
 #include "motion_sensor.cpp"
@@ -27,7 +27,10 @@ void setup() {
     setup_motion_sensor();
     Serial.println("Motion sensor set up.");
 
-    load_rgb_image_progmem(imgToLoad, num_leds, img_chessboard);
+    // load_rgb_image_progmem(imgToLoad, num_leds, img_pokeball);
+    uint64_t decompressedSize;
+    load_rgbrle_image_progmem(imgToLoad, num_leds, img_pokeball_rle, pgm_read_dword(&img_pokeball_rle_size), &decompressedSize);
+    Serial.println((int)decompressedSize);
 }
 
 void loop() {
