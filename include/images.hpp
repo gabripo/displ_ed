@@ -1035,13 +1035,11 @@ const sRGB img_pokeball[] PROGMEM = {
     {(uint8_t)0xff, (uint8_t)0x00, (uint8_t)0xff},
     {(uint8_t)0xff, (uint8_t)0x00, (uint8_t)0xff}};
 
-// const CRGB* images[] = {
+// const sRGB* const images[] PROGMEM = {
 //     img_pokeball,
-//     img_masterBall,
 //     img_chessboard};
 
 // enum images_name {
 //     POKEBALL,
-//     MASTERBALL,
 //     CHESSBOARD
 // } PROGMEM;
