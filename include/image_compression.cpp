@@ -57,7 +57,7 @@ RLEPixel* compressRLE(rgb_color* imageData, uint8_t width, uint8_t height, int* 
     return compressedData;
 }
 
-CRGB* decompressRLE(const RLEPixel* const compressedData, uint64_t compressedSize, int* decompressedSize) {
+CRGB* decompressRLE(const RLEPixel* const compressedData, uint64_t compressedSize, uint64_t* decompressedSize) {
     uint64_t totalSize = 0;
     for (uint64_t i = 0; i < compressedSize; i++) {
         totalSize += compressedData[i].count;
@@ -65,6 +65,7 @@ CRGB* decompressRLE(const RLEPixel* const compressedData, uint64_t compressedSiz
 
     CRGB* decompressedData = (CRGB*)malloc(totalSize * sizeof(CRGB));
     if (decompressedData == NULL) {
+        *decompressedSize = 0;
         return nullptr;
     }
 

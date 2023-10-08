@@ -23,6 +23,6 @@ rgb_color convert_crgb_rgbcolor(const CRGB* const crgb_color);
 rgb_color* convert_crgb_rgbimage(const CRGB* const crgb_image, const uint64_t imageSize);
 int is_same_rgbcolor(const rgb_color* const color1, const rgb_color* const color2);
 RLEPixel* compressRLE(rgb_color* imageData, uint8_t width, uint8_t height, int* compressedSize);
-CRGB* decompressRLE(const RLEPixel* const compressedData, uint64_t compressedSize, int* decompressedSize);
+CRGB* decompressRLE(const RLEPixel* const compressedData, uint64_t compressedSize, uint64_t* decompressedSize);
 
 #endif
