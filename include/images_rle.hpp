@@ -1,6 +1,6 @@
 #include "image_compression.hpp"
 
-const RLEPixel img_pokeball_rle[] = {
+const RLEPixel img_pokeball_rle[] PROGMEM = {
     {{(uint8_t)0xc0, (uint8_t)0x7800, (uint8_t)0x0}, (uint32_t)2},
     {{(uint8_t)0x30, (uint8_t)0x3000, (uint8_t)0x300000}, (uint32_t)3},
     {{(uint8_t)0xf0, (uint8_t)0x3800, (uint8_t)0xb00000}, (uint32_t)6},
