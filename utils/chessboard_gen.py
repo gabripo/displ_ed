@@ -4,8 +4,13 @@ import argparse
 # Define a function to create the chessboard
 def create_chessboard(board_size, square_size, invert):
     # Define the colors for black and white squares as 24-bit hex values
-    black_color = "0x000000"
-    white_color = "0xFFFFFF"
+    rgbColorType = "(uint8_t)"
+    black_color = (
+        "{" + rgbColorType + "0x00, " + rgbColorType + "0x00, " + rgbColorType + "0x00}"
+    )
+    white_color = (
+        "{" + rgbColorType + "0xFF, " + rgbColorType + "0xFF, " + rgbColorType + "0xFF}"
+    )
 
     # Create a list to store the chessboard values
     chessboard_values = []

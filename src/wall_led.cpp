@@ -27,7 +27,7 @@ void setup() {
     setup_motion_sensor();
     Serial.println("Motion sensor set up.");
 
-    load_rgb_image_progmem(imgToLoad, num_leds, img_pokeball);
+    load_rgb_image_progmem(imgToLoad, num_leds, img_chessboard);
 }
 
 void loop() {
