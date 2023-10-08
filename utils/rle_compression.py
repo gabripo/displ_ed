@@ -37,7 +37,19 @@ def read_color_data(filename):
         for line in file:
             line = line.strip()
             colors = [
-                int(color.strip(), 16) for color in line.split(",") if color.strip()
+                int(
+                    "0x"
+                    + "".join(
+                        hex_value.strip()
+                        .replace("(uint8_t)", "")
+                        .replace("{", "")
+                        .replace("0x", "")
+                        .replace(", ", "")
+                    ),
+                    16,
+                )
+                for hex_value in line.split("},")
+                if hex_value.strip()
             ]  # Strip each color individually
             color_data.extend(colors)  # Add the cleaned colors from the line
     return color_data
@@ -46,7 +58,7 @@ def read_color_data(filename):
 # Write compressed data to a text file with hex values separated by comma
 def write_compressed_data(filename, compressed_data):
     rgbValType = "uint8_t"
-    countType = "uint32_t"
+    countType = "uint8_t"
     with open(filename, "w") as file:
         for pixel in compressed_data:
             hex_color = hex(pixel.color)[2:]
