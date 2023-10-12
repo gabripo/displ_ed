@@ -11,7 +11,7 @@ typedef struct {
     pixelPos x;
     pixelPos y;
 } pixelPosCouple;
-unsigned int imgLoaded = 0;
+byte imgLoaded = 0;
 
 void leds_refresh();
 void leds_refresh_wait(const unsigned long long int timeToWait);
