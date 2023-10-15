@@ -12,7 +12,7 @@
 
 FASTLED_USING_NAMESPACE
 
-CRGB imgToLoad[num_leds];
+uint64_t decompressedSize;
 
 void setup() {
     Serial.begin(9600);
@@ -26,17 +26,16 @@ void setup() {
     Serial.println("Setting up motion sensor...");
     setup_motion_sensor();
     Serial.println("Motion sensor set up.");
-
-    // load_rgb_image_progmem(imgToLoad, num_leds, img_pokeball);
-    uint64_t decompressedSize;
-    load_rgbrle_image_progmem(imgToLoad, num_leds, img_pokeball_rle, pgm_read_dword(&img_pokeball_rle_size), &decompressedSize);
-    Serial.println((int)decompressedSize);
 }
 
 void loop() {
     if (isMotion && digitalRead(interruptPin)) {
         Serial.println("Motion!");
-        load_image(leds, imgToLoad, &imgLoaded);
+        if (!imgLoaded) {
+            load_rgbrle_image_progmem(leds, num_leds, img_pokeball_rle, pgm_read_dword(&img_pokeball_rle_size), &decompressedSize);
+            imgLoaded = 1;
+            FastLED.show();
+        }
     } else {
         switch_off_all(leds);
         imgLoaded = 0;
