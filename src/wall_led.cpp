@@ -19,13 +19,20 @@ void setup() {
     FastLED.addLeds<LED_TYPE, ARDUINO_DATA_PIN, COLOR_ORDER>(leds, num_leds);
 
     FastLED.setBrightness(BRIGHTNESS);
-    Serial.println("RGBW test...");
-    rgb_test(leds);
-    Serial.println("RGBW test completed.");
-    delay(1000);
-    Serial.println("Setting up motion sensor...");
-    setup_motion_sensor();
-    Serial.println("Motion sensor set up.");
+    if (calibrationMode) {
+        Serial.println("Calibration mode activated.");
+        load_rgb_image_progmem(leds, num_leds, img_chessboard);
+        imgLoaded = 1;
+        FastLED.show();
+    } else {
+        Serial.println("RGBW test...");
+        rgb_test(leds);
+        Serial.println("RGBW test completed.");
+        delay(1000);
+        Serial.println("Setting up motion sensor...");
+        setup_motion_sensor();
+        Serial.println("Motion sensor set up.");
+    }
 }
 
 void loop() {
@@ -37,7 +44,9 @@ void loop() {
             FastLED.show();
         }
     } else {
-        switch_off_all(leds);
-        imgLoaded = 0;
+        if (!calibrationMode) {
+            switch_off_all(leds);
+            imgLoaded = 0;
+        }
     };
 }

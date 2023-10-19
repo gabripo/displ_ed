@@ -85,7 +85,7 @@ void turnon_incrementally(CRGB* leds_values) {
     }
 }
 
-void load_image(CRGB* leds_values, const CRGB* imgToLoad, unsigned int* imgLoaded) {
+void load_crgb_image(CRGB* leds_values, const CRGB* imgToLoad, unsigned int* imgLoaded) {
     if (!(*imgLoaded)) {
         memcpy(leds_values, imgToLoad, num_leds * sizeof(CRGB));
         leds_refresh();

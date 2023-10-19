@@ -11,6 +11,7 @@
 static const unsigned int leds_width = 16;
 static const unsigned int leds_height = 16;
 static const unsigned long long int num_leds = leds_width * leds_height;
+static const byte calibrationMode = 1;
 
 CRGB leds[num_leds];
 

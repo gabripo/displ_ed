@@ -27,5 +27,5 @@ void set_color_by_position(CRGB* leds_values, const pixelPosCouple xyPos, const 
 void turnon_nth_led_each_stripe(CRGB* leds_values, const pixelPos nthPos, const CRGB colorToSet);
 void turnon_incrementally(CRGB* leds_values);
 
-void load_image(CRGB* leds_values, const CRGB* imgToLoad, unsigned int* imgLoaded);
+void load_crgb_image(CRGB* leds_values, const CRGB* imgToLoad, byte* imgLoaded);
 #endif
